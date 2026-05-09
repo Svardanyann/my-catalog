@@ -1,7 +1,7 @@
 const imgPath = "images/"; 
 
 let products = JSON.parse(localStorage.getItem("myProducts")) || [
-    { id: 1, name: "Paminak", cost: 80, price: 100, img: "paminak.png" },
+    { id: 1, name: "Paminak", cost: 80, price: 100, img: "paminak.png" }, 
     { id: 2, name: "Narinak", cost: 90, price: 120, img: "paminak1.jpg" },
     { id: 3, name: "Donat", cost: 85, price: 110, img: "paminak2.jpg" },
     { id: 4, name: "Paminak", cost: 80, price: 100, img: "paminak3.jpg" },
