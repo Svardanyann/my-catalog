@@ -7,7 +7,7 @@ let products = JSON.parse(localStorage.getItem("myProducts")) || [
     { id: 4, name: "Paminak", cost: 80, price: 100, img: "paminak3.jpg" },
     { id: 5, name: "Narinak", cost: 90, price: 120, img: "paminak4.jpg" },
     { id: 6, name: "Donat", cost: 85, price: 110, img: "paminak5.jpg" },
-    { id: 7, name: "Paminak", cost: 80, price: 100, img: "paminak6.jpg" },
+    { id: 7, name: "Paminak", cost: 80, price: 100, img: "paminak6.jpg" }, 
     { id: 8, name: "Narinak", cost: 90, price: 120, img: "paminak7.jpg" },
     { id: 9, name: "Donat", cost: 85, price: 110, img: "paminak8.jpg" },
     { id: 10, name: "Paminak", cost: 80, price: 100, img: "paminak9.jpg" },
