@@ -3,7 +3,7 @@
     height: 140px;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     background: #f3f4f6;
     border-radius: 8px;
