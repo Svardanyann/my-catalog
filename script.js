@@ -1,12 +1,40 @@
 const imgPath = "images/"; 
 
 let products = JSON.parse(localStorage.getItem("myProducts")) || [
-    { id: 1, name: "Paminak", cost: 80, price: 100, img: "choco pie.jpg" },
-    { id: 2, name: "Narinak", cost: 90, price: 120, img: "narinak.jpg" },
-    { id: 3, name: "Donat", cost: 85, price: 110, img: "donat.jpg" },
-    { id: 1, name: "Paminak", cost: 80, price: 100, img: "choco pie.jpg" },
-    { id: 2, name: "Narinak", cost: 90, price: 120, img: "narinak.jpg" },
-    { id: 3, name: "Donat", cost: 85, price: 110, img: "donat.jpg" }
+    { id: 1, name: "Paminak", cost: 80, price: 100, img: "paminak.png" },
+    { id: 2, name: "Narinak", cost: 90, price: 120, img: "paminak1.jpg" },
+    { id: 3, name: "Donat", cost: 85, price: 110, img: "paminak2.jpg" },
+    { id: 4, name: "Paminak", cost: 80, price: 100, img: "paminak3.jpg" },
+    { id: 5, name: "Narinak", cost: 90, price: 120, img: "paminak4.jpg" },
+    { id: 6, name: "Donat", cost: 85, price: 110, img: "paminak5.jpg" },
+    { id: 7, name: "Paminak", cost: 80, price: 100, img: "paminak6.jpg" },
+    { id: 8, name: "Narinak", cost: 90, price: 120, img: "paminak7.jpg" },
+    { id: 9, name: "Donat", cost: 85, price: 110, img: "paminak8.jpg" },
+    { id: 10, name: "Paminak", cost: 80, price: 100, img: "paminak9.jpg" },
+    { id: 11, name: "Narinak", cost: 90, price: 120, img: "paminak10.jpg" },
+    { id: 12, name: "Donat", cost: 85, price: 110, img: "paminak11.jpg" },
+    { id: 13, name: "Paminak", cost: 80, price: 100, img: "paminak12.jpg" },
+    { id: 14, name: "Narinak", cost: 90, price: 120, img: "paminak13.jpg" },
+    { id: 15, name: "Donat", cost: 85, price: 110, img: "paminak14.jpg" },
+    { id: 16, name: "Paminak", cost: 80, price: 100, img: "paminak15.jpeg" },
+    { id: 17, name: "Narinak", cost: 90, price: 120, img: "paminak16.jpeg" },
+    { id: 18, name: "Donat", cost: 85, price: 110, img: "paminak17.jpeg" },
+    { id: 19, name: "Paminak", cost: 80, price: 100, img: "paminak18.jpeg" },
+    { id: 20, name: "Narinak", cost: 90, price: 120, img: "paminak19.jpeg" },
+    { id: 21, name: "Donat", cost: 85, price: 110, img: "paminak20.jpeg" },
+    { id: 22, name: "Paminak", cost: 80, price: 100, img: "paminak21.jpeg" },
+    { id: 23, name: "Narinak", cost: 90, price: 120, img: "paminak22.jpeg" },
+    { id: 24, name: "Donat", cost: 85, price: 110, img: "paminak23.jpeg" },
+    { id: 25, name: "Paminak", cost: 80, price: 100, img: "paminak24.jpg" },
+    { id: 26, name: "Narinak", cost: 90, price: 120, img: "paminak25.jpg" },
+    { id: 27, name: "Donat", cost: 85, price: 110, img: "paminak26.jpg" },
+    { id: 28, name: "Paminak", cost: 80, price: 100, img: "paminak27.jpg" },
+    { id: 29, name: "Narinak", cost: 90, price: 120, img: "paminak28.jpg" },
+    { id: 30, name: "Donat", cost: 85, price: 110, img: "paminak29.jpg" },
+    { id: 31, name: "Paminak", cost: 80, price: 100, img: "paminak30.jpg" },
+    { id: 32, name: "Narinak", cost: 90, price: 120, img: "paminak31.jpg" },
+    { id: 33, name: "Donat", cost: 85, price: 110, img: "paminak32.jpg" },
+    { id: 34, name: "Paminak", cost: 80, price: 100, img: "paminak33.jpg" }
 ];
 
 let cart = [];
@@ -19,6 +47,26 @@ function showSection(section) {
     document.getElementById("history-section").classList.toggle("hidden", section !== "history");
     if (section === 'history') renderHistory();
 }
+let touchStart = 0;
+let touchEnd = 0;
+
+window.addEventListener('touchstart', e => {
+    touchStart = e.targetTouches[0].pageY;
+}, {passive: true});
+
+window.addEventListener('touchmove', e => {
+    touchEnd = e.targetTouches[0].pageY;
+    if (window.scrollY === 0 && touchEnd > touchStart + 100) {
+        // Եթե էջը վերևում է ու քաշում ենք ներքև 100px-ից ավել
+        document.getElementById('refresh-spinner').style.display = 'block';
+    }
+}, {passive: true});
+
+window.addEventListener('touchend', e => {
+    if (window.scrollY === 0 && touchEnd > touchStart + 100) {
+        location.reload(); // Թարմացնում է էջը
+    }
+});
 
 function renderCatalog(items) {
     const list = document.getElementById("product-list");
