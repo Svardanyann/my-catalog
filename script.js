@@ -56,14 +56,14 @@ window.addEventListener('touchstart', e => {
 
 window.addEventListener('touchmove', e => {
     touchEnd = e.targetTouches[0].pageY;
-    if (window.scrollY === 0 && touchEnd > touchStart + 100) {
+    if (window.scrollY === 0 && touchEnd > touchStart + 200) {
         // Եթե էջը վերևում է ու քաշում ենք ներքև 100px-ից ավել
         document.getElementById('refresh-spinner').style.display = 'block';
     }
 }, {passive: true});
 
 window.addEventListener('touchend', e => {
-    if (window.scrollY === 0 && touchEnd > touchStart + 100) {
+    if (window.scrollY === 0 && touchEnd > touchStart + 200) {
         location.reload(); // Թարմացնում է էջը
     }
 });
